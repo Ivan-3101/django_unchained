@@ -11,8 +11,12 @@
         
         {% csrf_token %}
 
-        <label for="add_task">Add Task: </label>
+        <!-- <label for="add_task">Add Task: </label>
         <input type="text" name="add_task">
+        <input type="submit"> -->
+            
+        {{ var_form }}
+        <!-- importing the form using django -->
         <input type="submit">
     </form>
 
