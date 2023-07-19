@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello</title>
+    <title>Tasks</title>
 </head>
 <body>
-    {% block body %}
-    {% endblock %}
+    <h2>To Do : </h2>
+    {% for x in tasks %}
+    <ul>
+        <li>{{x}}</li>
+    </ul>
+    {% endfor %}
 </body>
 </html>
