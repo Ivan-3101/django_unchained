@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a Task</title>
+</head>
+<body>
+    <!-- <h1>Add a task</h1> -->
+    <form>
+        <label for="add_task">Add Task: </label>
+        <input type="text" name="add_task">
+        <input type="submit">
+    </form>
+
+    <a href="/tasks">View Tasks (Hardcoded link)</a>
+
+    <br>
+    <a href="{% url 'tasks:index' %}">View Tasks </a>
+</body>
+</html>

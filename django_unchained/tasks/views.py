@@ -10,6 +10,9 @@ def index(request):
         "tasks":tasks_list,
     })
 
+def add(request):
+    return render(request,"tasks/add.html")
+
 def ivan(request,name):
     return render(request,"tasks/ivan.html",{
         "name" :name.capitalize(), 

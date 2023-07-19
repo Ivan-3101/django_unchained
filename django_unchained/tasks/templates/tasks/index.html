@@ -6,11 +6,20 @@
     <title>Tasks</title>
 </head>
 <body>
-    <h2>To Do : </h2>
+    <h2>Tasks : </h2>
     {% for x in tasks %}
     <ul>
         <li>{{x}}</li>
     </ul>
     {% endfor %}
+
+    <a href="/tasks/add">Add a task ? (hardcoded link)</a>
+    <!-- the above should be the way 
+    we type in the google search to go to the page
+    ex. http://127.0.0.1:8000/tasks/add -->
+
+    <br>
+    <a href="{% url 'tasks:add' %}">Add a task ?</a>
+    <!-- since we named the add fuknction add in views -->
 </body>
 </html>
