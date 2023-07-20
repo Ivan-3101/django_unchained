@@ -10,6 +10,8 @@
     {% for x in tasks %}
     <ul>
         <li>{{x}}</li>
+    {%empty%}
+        <li>No tasks</li>
     </ul>
     {% endfor %}
 

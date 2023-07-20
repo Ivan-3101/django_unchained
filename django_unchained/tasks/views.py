@@ -51,7 +51,7 @@ def add(request):
             # get the task
             # save inside variable called task
             # and add to growing list
-            tasks_list.append(task)
+            request.session["tasks_list"]+=[task]
 
 
             # redirecting the user back to the tasks
