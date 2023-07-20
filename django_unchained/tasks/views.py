@@ -5,12 +5,17 @@ from django.http import HttpResponse
 
 from django import forms
 
-tasks_list = ["check email","backup files","pray"]
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+
+# tasks_list = ["check email","backup files","pray"]
+tasks_list = []
+
 
 class NewTaskForm_classname(forms.Form):
     # ALL THE FIELDS ID LIKE THE USER TO HAVE
     task = forms.CharField(label="New Task :")
-    priority = forms.IntegerField(label="Priority :",min_value=1,max_value=10)
+    # priority = forms.IntegerField(label="Priority :",min_value=1,max_value=10)
 
 def index(request):
     return render(request,"tasks/index.html",{
@@ -40,6 +45,11 @@ def add(request):
             # and add to growing list
             tasks_list.append(task)
 
+
+            # redirecting the user back to the tasks
+            # after adding the tasks
+            return HttpResponseRedirect(reverse("tasks:index"))
+
         # if form is not valid
         else:
             return render(request,"tasks/add.html",{
@@ -51,6 +61,10 @@ def add(request):
             # I'm going to send back the existing form data back to them. So we can display information about any errors that might have come up as well.
             })
 
+
+    #     And then otherwise, meaning if the request method wasn't POST at all, if the user just tried to get the page rather than submit data to it,
+    # 1:27:54
+    # then we're just going to render to them an empty form. And this sort of paradigm is actually quite common when we're dealing with requests and responses,
     return render(request,"tasks/add.html",{
         "var_form": NewTaskForm_classname()
         # give this template access
