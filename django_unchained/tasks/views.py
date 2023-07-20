@@ -9,7 +9,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 
 # tasks_list = ["check email","backup files","pray"]
-tasks_list = []
+# tasks_list = []
 
 
 class NewTaskForm_classname(forms.Form):
@@ -18,8 +18,16 @@ class NewTaskForm_classname(forms.Form):
     # priority = forms.IntegerField(label="Priority :",min_value=1,max_value=10)
 
 def index(request):
+
+    # sessions
+    if "tasks_list" not in request.session:
+        request.session["tasks_list"]=[]
+
+
     return render(request,"tasks/index.html",{
-        "tasks":tasks_list,
+        # "tasks":tasks_list,
+        "tasks":request.session["tasks_list"]
+
     })
 
 def add(request):
